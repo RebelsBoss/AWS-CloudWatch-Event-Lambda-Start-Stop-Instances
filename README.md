@@ -1,4 +1,4 @@
-# AWS CloudWatch + Event + Lambda + Start/Stop Instances
+# AWS CloudWatch + Event + Lambda = Start/Stop Instances
 
 Метою є створення автоматичного старту інстансів, які знаходяться у вимкнутому стані, при збільшені навантаження на **"NGINX proxy server"**.
 Першим кроком є встановлення **"cloudwatch agent"** на **"nginx proxy server"** для постійного відправлення логів до **"CloudWatch"**. Отримані логи розіб'ємо по паттерну в **"CloudWatch"** та створюємо **"alert"**.
