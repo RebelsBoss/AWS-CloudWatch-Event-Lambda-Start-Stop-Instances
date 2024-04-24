@@ -14,6 +14,6 @@
 
 ![Знімок екрана 2024-04-24 164631](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/4c6ec4d2-f1a5-4333-bedd-d01ea637abef)
 
-
+![Знімок екрана 2024-04-24 164720](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/d78fbb81-316f-41ed-9834-73263e44dcfa)
 
 ### Create role and policy for Lambda
