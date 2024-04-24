@@ -17,6 +17,7 @@
 ![Знімок екрана 2024-04-24 164720](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/d78fbb81-316f-41ed-9834-73263e44dcfa)
 
 ### Create role and policy for Lambda
+
 Створюємо політику для ролі **"Lambda function"**. Переходимо до вкладки **"Policies"** та натискаємо **"Create policy"**. У вкладенні **"Policy editor"** вибираємо **"JSON"**, копіюємо туди наш файл [**"lambda-policy.json"**](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/lambda-policy.json) та вставляємо політику.
 
 ![Знімок екрана 2024-04-24 170838](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/2574d210-d887-496f-b93e-a022a88ab6f1)
@@ -29,4 +30,24 @@
 
 ![Знімок екрана 2024-04-24 170957](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/0d7557ea-e59a-4879-8fa0-27219d3e51b6)
 
+## [Add role for EC2](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role)
 
+Вибираємо необхідний нам сервер. Натискаємо **"Actions"**, в розгорнутому списку вибираємо **"Security"**, та натискаємо **"Modify IAM role"**.
+
+![Знімок екрана 2024-04-24 171818](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/a1a18625-ba49-430d-bed6-418d459cf74b)
+
+## [Install CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.html)
+
+Вибираємо необхідну нам операційну систему, та копіюємо посилання для завантаження. Виконуємо ці команди на сервері куди встановлюємо агента. Після завантаження необхідно встановити залежно від нашої операційної системи команда може змінюватись (приклад для Linux server Deb package).
+
+```
+wget <необхідне нам посилання>
+
+sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+```
+
+Перевірити стату нашого агенту можливо наступною командою.
+
+```
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
+```
