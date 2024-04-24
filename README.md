@@ -17,3 +17,4 @@
 ![Знімок екрана 2024-04-24 164720](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/d78fbb81-316f-41ed-9834-73263e44dcfa)
 
 ### Create role and policy for Lambda
+Створюємо політику для ролі **"Lambda function"**. Переходимо до вкладки **"Policies"** та натискаємо **"Create policy"**. У вкладенні **"Policy editor"** вибираємо **"JSON"**, копіюємо туди наш файл[**"lambda-policy.json"**](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/lambda-policy.json) та вставляємо політику.
