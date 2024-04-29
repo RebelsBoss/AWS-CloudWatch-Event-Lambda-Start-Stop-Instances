@@ -64,3 +64,42 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a 
 
 Необхідно налаштувати логування **"nginx"** так, щоб він писав необхідні логи для **"CloudWatch alarm"**. На сервері треба додати до файлу конфігурації **"nginx"** наступні метрики, які він буде логувати (шлях до файлу **"/etc/nginx/nginx.conf"**).
 
+```
+http {
+    #CloudWatch Log Format 
+    log_format clwatch 		'$remote_addr - $remote_user [$time_local] '
+                            		'"$request" $status $body_bytes_sent '
+                             		'"$http_referer" "$http_user_agent"'
+                             		'$request_time $upstream_connect_time
+                                               $upstream_header_time $upstream_response_time';
+}
+```
+![Знімок екрана 2024-04-29 170648](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/4ea57101-5246-415d-a0f8-85fd1f1692e6)
+
+Тепер додаємо в файли **"nginx"** конфігурації наш лог по створеному вище лог формату (шлях до файлів **"/etc/nginx/sites-available/"**).
+
+```
+# Add log with CloudWatch format
+access_log     /var/log/nginx/<your_server_name> clwatch;
+```
+![Знімок екрана 2024-04-29 171550](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/64d5bbb9-032d-4c5d-a0f1-3a58c66e278b)
+
+**"Важливо!!!"** Додати в **"ssl"** конфігах зміни у двох місцях у **"location"** блоці конфіга.
+Після всіх налаштувань, необхідно перезапустити **"nginx"** під юзером, яким він налаштований та запущений. 
+Також додаю непогану документацію по налаштуванню логування [**"nginx"**](https://www.ertugral.dev/blog/monitoring-nginx-with-cloudwatch) саме для **"CloudWatch"**.
+
+## [Create config file for amazon-cloudwatch-agent.json](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html#CloudWatch-Agent-Configuration-File-Agentsection).
+
+Я створював простий файл, без налаштування **"Agent section, Metrics section, Logs section, Traces section"**. Шлях розташування цього файлу **"/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json**. 
+Додаю [приклад](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/amazon-cloudwatch-agent.json).
+
+Опис полів:
+1. **"file_path"** шлях до створених вище **"nginx"** логів.
+2. **"log_group_name"** имя лог групи у **"AWS CloudWatch"**.
+3. **"log_stream_name"** тип логу.
+
+![Знімок екрана 2024-04-29 172550](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/d23b961e-0c59-4a23-a07a-43224b7ee99c)
+
+## [Create Lambda function for EC2 Start/Stop](https://repost.aws/knowledge-center/start-stop-lambda-eventbridge#:~:text=Create%20Lambda%20functions%20that%20stop%20and%20start%20your%20instances).
+
+[Заходимо](https://console.aws.amazon.com/lambda/) до інструменту та вибираємо **"Create function"**. Окремо має бути дві функції, одна для **"Start"**, друга для **"Stop"**.
