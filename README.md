@@ -60,7 +60,7 @@ sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
 ```
 
-## [Налаштування логів nginx](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/#:~:text=All%20time%20values%20are%20measured%20in%20seconds%20with%20millisecond%20resolution).
+## [Config log nginx](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/#:~:text=All%20time%20values%20are%20measured%20in%20seconds%20with%20millisecond%20resolution).
 
 Необхідно налаштувати логування **"nginx"** так, щоб він писав необхідні логи для **"CloudWatch alarm"**. На сервері треба додати до файлу конфігурації **"nginx"** наступні метрики, які він буде логувати (шлях до файлу **"/etc/nginx/nginx.conf"**).
 
