@@ -141,3 +141,9 @@ aws lambda add-permission \
 
 ![Знімок екрана 2024-04-30 113041](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/fcf94361-b279-43fc-8c5f-87e7f40380dd)
 
+## Setting AWS CloudWatch
+
+Створення **"metric filter"**. Зліва у меню знаходимо **"Log group"**. У списку груп знаходимо необхідну нам групу та заходимо в неї (лог група береться з налаштування поля **"log_group_name"** у конфігурації **"amazon-cloudwatch-agent.json"**, яку описано вище). У групі натискаємо **"Metric filters"** та **"Create metric filter"**.
+
+
+
