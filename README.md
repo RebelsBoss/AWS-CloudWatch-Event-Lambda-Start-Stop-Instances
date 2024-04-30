@@ -116,3 +116,28 @@ access_log     /var/log/nginx/<your_server_name> clwatch;
 Натискаємо **"Deploy"**.
 
 ![Знімок екрана 2024-04-30 092827](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/b0d4c6d9-a863-4469-aec9-5c17642ff31e)
+
+## [Access CloudWatch for Lambda](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-actions:~:text=Lambda%20alarm%20actions).
+
+**"AWS"** пропонує два варіанти для виконання всіх завдань, так само й тут. Треба створити **"AssumeRole"**. Яка дозволить **"CloudWatch"** запускати **"Lambda"**. Приклад [ролі](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/lambda-assume-role.json). Я використовував і рекомендую, запустити цей скрипт вказав свої перемінні у **"cloudshell"** :
+
+```
+aws lambda add-permission \
+--function-name <name_function> \
+--statement-id AlarmAction \
+--action 'lambda:InvokeFunction' \
+--principal lambda.alarms.cloudwatch.amazonaws.com \
+--source-account <number_account> \
+--source-arn arn:aws:cloudwatch:<region>:<number_account>:alarm:<name_your_alarm>
+```
+
+![Знімок екрана 2024-04-30 111000](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/f886d738-46b9-4321-ad7a-ac56b0b20e17)
+
+Після цієї команди **"AssumeRole"** з'явиться в наступній секції :
+
+![Знімок екрана 2024-04-30 112946](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/6714aa8f-7b4e-4d24-9b05-d0d9df3c3238)
+
+В цій вкладці опускаємось нижче і знаходимо наступну вкладку :
+
+![Знімок екрана 2024-04-30 113041](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/fcf94361-b279-43fc-8c5f-87e7f40380dd)
+
