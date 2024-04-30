@@ -103,3 +103,16 @@ access_log     /var/log/nginx/<your_server_name> clwatch;
 ## [Create Lambda function for EC2 Start/Stop](https://repost.aws/knowledge-center/start-stop-lambda-eventbridge#:~:text=Create%20Lambda%20functions%20that%20stop%20and%20start%20your%20instances).
 
 [Заходимо](https://console.aws.amazon.com/lambda/) до інструменту та вибираємо **"Create function"**. Окремо має бути дві функції, одна для **"Start"**, друга для **"Stop"**.
+
+![Знімок екрана 2024-04-30 090921](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/ae6eac77-fce6-4d18-b3d5-b7f02d2eda2e)
+
+Вибираємо **"Author from scratch"**. Для **"Basic information"** пишемо ім'я функції, **"Runtime"** вибираємо **"Python 3.9"** а також додаємо створену вище роль.
+
+![Знімок екрана 2024-04-30 091436](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/b2880d3f-f5a1-41dd-8825-fed4f1e8a37b)
+
+![Знімок екрана 2024-04-30 091617](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/05ed4e8f-4bfc-496b-bf70-24f0e8805e87)
+
+Створюємо функцію. Після створення функції, заходемо до неї та у вкладці **"Code"** додаємо наступний код для [**"Stop"**](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/stop-instance.py), для[**"Start"**](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/start-instance.py).
+Натискаємо **"Deploy"**.
+
+![Знімок екрана 2024-04-30 092827](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/b0d4c6d9-a863-4469-aec9-5c17642ff31e)
