@@ -71,7 +71,7 @@ http {
                             		'"$request" $status $body_bytes_sent '
                              		'"$http_referer" "$http_user_agent"'
                              		'$request_time $upstream_connect_time
-                                    $upstream_header_time $upstream_response_time';
+                                      $upstream_header_time $upstream_response_time';
 }
 ```
 ![Знімок екрана 2024-04-29 170648](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/4ea57101-5246-415d-a0f8-85fd1f1692e6)
