@@ -9,9 +9,9 @@
 ### Create role for EC2
 
 В першу чергу треба створити роль для інстансу у котрий ми встановимо **"cloudwatch agent"**, щоб **"cloudwatch agent"** міг відправляти логи до **"CloudWatch"**. Заходимо до свого аккаунту **"AWS"**, та переходимо у сервіс **"[IAM](https://console.aws.amazon.com/iam/)"**. Натискаємо вкладку **"Roles"**, та вибираємо **"Create role"**. Для вікна **"Use case"** потрібно вибрати для **"ЕС2"**. При виборі політик для нашої ролі потрібно вибрати **"CloudWatchAgentServerPolicy"**, a роль AWS рекомендує назвати саме **"CloudWatchAgentServerRole"**. Натискаємо створити роль.
-```
+
 ![Знімок екрана 2024-04-24 164544](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/40ba48a5-5979-4674-b0d4-03ffd8ead5f9)
-```
+
 ![Знімок екрана 2024-04-24 164631](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/4c6ec4d2-f1a5-4333-bedd-d01ea637abef)
 
 ![Знімок екрана 2024-04-24 164720](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/d78fbb81-316f-41ed-9834-73263e44dcfa)
