@@ -100,6 +100,12 @@ access_log     /var/log/nginx/<your_server_name> clwatch;
 
 ![Знімок екрана 2024-04-29 172550](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/d23b961e-0c59-4a23-a07a-43224b7ee99c)
 
+Тепер можемо [**"стартувати"**](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.html#:~:text=Start%20the%20CloudWatch%20agent%20using%20the%20command%20line) нашого агента наступною командою.
+
+```
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:<шлях до нашого файлу>
+```
+
 ## [Create Lambda function for EC2 Start/Stop](https://repost.aws/knowledge-center/start-stop-lambda-eventbridge#:~:text=Create%20Lambda%20functions%20that%20stop%20and%20start%20your%20instances).
 
 [Заходимо](https://console.aws.amazon.com/lambda/) до інструменту та вибираємо **"Create function"**. Окремо має бути дві функції, одна для **"Start"**, друга для **"Stop"**.
