@@ -119,7 +119,7 @@ access_log     /var/log/nginx/<your_server_name> clwatch;
 
 ## [Access CloudWatch for Lambda](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-actions:~:text=Lambda%20alarm%20actions).
 
-**"AWS"** пропонує два варіанти для виконання всіх завдань, так само й тут. Треба створити **"AssumeRole"**. Яка дозволить **"CloudWatch"** запускати **"Lambda"**. Приклад [ролі](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/lambda-assume-role.json). Я використовував і рекомендую, запустити цей скрипт вказав свої перемінні у **"cloudshell"** :
+**"AWS"** пропонує два варіанти для виконання всіх можливих завдань, кодом через **"cloudshell"** або через веб, так само й тут. Треба створити **"AssumeRole"** для **"Lambda"**, яка дозволить **"CloudWatch"** запускати її. Приклад [ролі](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/lambda-assume-role.json). Я використовував і рекомендую, запустити цей скрипт вказав свої перемінні у **"cloudshell"** :
 
 ```
 aws lambda add-permission \
