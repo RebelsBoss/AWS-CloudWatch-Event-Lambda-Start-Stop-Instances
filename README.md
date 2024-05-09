@@ -90,7 +90,7 @@ access_log     /var/log/nginx/<your_server_name> clwatch;
 
 ## [Create config file for amazon-cloudwatch-agent.json](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html#CloudWatch-Agent-Configuration-File-Agentsection).
 
-Я створював простий файл, без налаштування **"Agent section, Metrics section, Logs section, Traces section"**. Шлях розташування цього файлу **"/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json**. 
+Пропоную створити простий конфіг файл, без налаштування **"Agent section, Metrics section, Logs section, Traces section"**. По цьому файлу буде працювати наш **"cloudwatch agent"**. Шлях розташування цього файлу **"/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json"**. 
 Додаю [приклад](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/amazon-cloudwatch-agent.json).
 
 Опис полів:
