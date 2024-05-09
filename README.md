@@ -84,7 +84,7 @@ access_log     /var/log/nginx/<your_server_name> clwatch;
 ```
 ![Знімок екрана 2024-04-29 171550](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/64d5bbb9-032d-4c5d-a0f1-3a58c66e278b)
 
-**"Важливо!!!"** Додати в **"ssl"** конфігах зміни у двох місцях у **"location"** блоці конфіга.
+**"Важливо!!!"** Додати в **"ssl"** конфігах зміни у двох місцях (також **"location"** блоці конфіга).
 Після всіх налаштувань, необхідно перезапустити **"nginx"** під юзером, яким він налаштований та запущений. 
 Також додаю непогану документацію по налаштуванню логування [**"nginx"**](https://www.ertugral.dev/blog/monitoring-nginx-with-cloudwatch) саме для **"CloudWatch"**.
 
