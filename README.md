@@ -211,3 +211,36 @@ aws lambda add-permission \
 ![Знімок екрана 2024-05-23 174524](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/144ba7c6-c7bf-465c-bc7c-063ff2816fe3)
 
 Залишилось тестувати та вибирати підходящу метрику для спрацювання **"alarm"**.
+
+##  Setting with [NETSTAT](https://www.cisco.com/assets/sol/sb/CVR100W_GUI_EN/help/EN_help/status13.html#:~:text=LAST_ACK%3A%20The%20remote%20end%20has,Waiting%20for%20acknowledgement).
+
+Інструкція по налаштуванню **"netstat"** для відкритих сесій, якщо **"nginx"** не підходить.
+Треба створити процес, який буде повторюватись кожні 5 секунд. Для цього я прописав **"bash script"**, котрий викликається кожні 5 секунд та пише лог по активним сесіям, архівується по закінченню кожного дня, та видаляється кожен тиждень. 
+Приклад, який я описав вище я відтворював на [**"Ubuntu"**](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/blob/main/netstat.sh).
+Також необхідно перед виконанням **"bash scripts"** встановити **"netstat"** виконавши ряд команд.
+
+1. Оновлення списку пакунків вашої системи :
+   
+```
+sudo apt update
+```
+
+2. Встановлює пакунок **"net-tools"**, до складу якого входить **"netstat"** :
+
+```
+sudo apt install net-tools
+```
+
+3. Показує версію встановленого **"netstat"** :
+
+```
+netstat --version
+```
+
+4.Показує всі активні мережеві з'єднання :
+
+```
+netstat -a
+```
+
+**"Важливо!!!"** В заголовок додав опис статусів **"netstat"**. 
