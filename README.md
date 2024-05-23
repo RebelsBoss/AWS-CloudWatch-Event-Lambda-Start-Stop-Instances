@@ -80,7 +80,7 @@ http {
 
 ```
 # Add log with CloudWatch format
-access_log     /var/log/nginx/<your_server_name> clwatch;
+access_log     /var/log/nginx/<your_server_name>.clwatch clwatch;
 ```
 ![Знімок екрана 2024-04-29 171550](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/64d5bbb9-032d-4c5d-a0f1-3a58c66e278b)
 
