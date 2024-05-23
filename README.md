@@ -163,3 +163,51 @@ aws lambda add-permission \
 
 Для поля **"Select log data to test"** вибираємо наш лог **"Access log"** та тестуємо.
 
+![Знімок екрана 2024-05-23 171512](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/0a5330dd-385a-4d76-87b8-5ac49bde292f)
+
+Далі пишемо **"Filter name"**, вибираємо наш namespace (або створюємо новий, по офіційній документації створення може зайняти до двох діб), вказуємо **"Metric name"** та вказуємо **"Metric value"** по якій буде відбуватись фільтрування (та в подальшому побудований **"alarm"**).
+
+![Знімок екрана 2024-05-23 172028](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/8582719c-3de0-4b0e-8cc9-bc156cbb4135)
+
+Після створення метрики, у вкладці **"Metric filters"** з'явиться нова метрика. Тепер ми з цієї метрики можемо створити на alarm натиснувши **"Create alarm"**.
+
+![Знімок екрана 2024-05-23 172445](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/22d88501-46d9-4183-83c3-ae17a063f3b3)
+
+Створюємо **"alarm"**. Вибираємо необхідний **"Statistic"** по групуванню.
+**"Period"** це час за котрий буде створений **"datapoint"**.
+
+![Знімок екрана 2024-05-23 172959](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/f3d79d92-533a-42f7-bb50-faec01c30c1d)
+
+**"Threshold type"** рекомендую залишати по дефолту.
+Обираємо **"Whenever … is"**, на вибір що більше підійде.
+Поле **"than…"** це виставлений рівень (порог), воно має бути числовим.
+
+![Знімок екрана 2024-05-23 173017](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/43cb7d62-6823-4f5f-8c52-65750c2ce32f)
+
+**"Datapoints to alarm"** означає скільки має пройти циклів отримання **"datapoint"**, щоб спрацював **"alarm"**.
+
+![Знімок екрана 2024-05-23 173408](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/21998827-0f2f-448c-b7ab-16e9cb4ff9f5)
+
+Наступним кроком маємо створити три **"Add Lambda action"**.
+
+![Знімок екрана 2024-05-23 173547](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/e5762d3f-c3d8-4398-89ef-26d77c050624)
+
+![Знімок екрана 2024-05-23 173722](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/3338943c-ae98-44e3-b43a-513574de0b13)
+
+Три дії під кожен стан **"alarm"**. Вибираємо створену функцію (також є можливість вибору версіонування функції). Далі пишемо назву **"alarm"**. 
+
+![Знімок екрана 2024-05-23 173955](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/07b01147-70a2-4ae7-b77c-399640fd2981)
+
+Після створення **"alarm"**, він з'явиться в консолі.
+
+![Знімок екрана 2024-05-23 174133](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/0aa40591-2b13-43e9-87e9-d5cae8e3c442)
+
+Зайшовши до нього, можна побачити його стан **"Insufficient data"**, а також графічний дашборд на якому червоною лінією виставлений наш поріг (перевищивши цю мітку спрацює **"alarm"**).
+
+![Знімок екрана 2024-05-23 174329](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/7f8e42c5-053a-4c7f-800d-0920b76e4038)
+
+Також нижче є можливість прочитати детальну інформацію про **"alarm"**, історію, дії.
+
+![Знімок екрана 2024-05-23 174524](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/144ba7c6-c7bf-465c-bc7c-063ff2816fe3)
+
+Залишилось тестувати та вибирати підходящу метрику для спрацювання **"alarm"**.
