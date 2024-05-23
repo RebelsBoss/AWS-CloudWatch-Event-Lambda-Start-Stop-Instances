@@ -151,5 +151,15 @@ aws lambda add-permission \
 
 Створення **"metric filter"**. Зліва у меню знаходимо **"Log group"**. У списку груп знаходимо необхідну нам групу та заходимо в неї (лог група береться з налаштування поля **"log_group_name"** у конфігурації **"amazon-cloudwatch-agent.json"**, яку описано вище). У групі натискаємо **"Metric filters"** та **"Create metric filter"**.
 
+![Знімок екрана 2024-05-23 170434](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/51319850-a657-4570-be6a-024496cbf0c7)
 
+![Знімок екрана 2024-05-23 170532](https://github.com/RebelsBoss/AWS-CloudWatch-Event-Lambda-Start-Stop-Instances/assets/126337643/9fdb6028-5386-499c-a392-2514b0268a9c)
+
+Вказуємо наш **"Filter pattern"**, для розбивання полотна логів :
+
+```
+[ip, user, username, timestamp, request, status_code, bytes, http_referer, http_user_agent, request_time, upstream_connect_time, upstream_header_time, upstream_response_time]
+```
+
+Для поля **"Select log data to test"** вибираємо наш лог **"Access log"** та тестуємо.
 
